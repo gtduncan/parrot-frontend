@@ -6,15 +6,11 @@ import LoginModal from './LoginModal.js'
 import SignupModal from './SignupModal.js'
 
 
-const LoginPage = () =>
+const LoginPage = ({loginInfo, loggedIn, showLogin, handleShowLogin, handleCloseLogin, setLoggedIn, currentUser, setCurrentUser}) =>
 {
   const [showSignup, setShowSignup] = useState(false);
   const handleCloseSignup = () => setShowSignup(false);
   const handleShowSignup = () => setShowSignup(true);
-
-  const [showLogin, setShowLogin] = useState(false);
-  const handleCloseLogin = () => setShowLogin(false);
-  const handleShowLogin = () => setShowLogin(true);
 
     return(
     <div>
@@ -31,8 +27,8 @@ const LoginPage = () =>
             <Button variant='light' className="login-buttons" onClick={handleShowLogin}>Log In</Button>
         </div>
     </div>
-      <SignupModal showSignup={showSignup} handleCloseSignup={handleCloseSignup}/>
-      <LoginModal showLogin={showLogin} handleCloseLogin={handleCloseLogin}/>
+      <SignupModal setLoggedIn={setLoggedIn} loginInfo={loginInfo} showSignup={showSignup} handleCloseSignup={handleCloseSignup}/>
+      <LoginModal showLogin={showLogin} loggedIn={loggedIn} currentUser={currentUser} setCurrentUser={setCurrentUser} setLoggedIn={setLoggedIn} handleCloseLogin={handleCloseLogin} loginInfo={loginInfo}/>
     </div>
     )
 }

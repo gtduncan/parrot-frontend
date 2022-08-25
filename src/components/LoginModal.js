@@ -1,8 +1,11 @@
 import {Button, Modal, Form} from 'react-bootstrap'
 import {React, useState} from 'react'
+import {useNavigate} from "react-router-dom";
 
-const LoginModal = ({showLogin, handleCloseLogin}) =>
+const LoginModal = ({showLogin, handleCloseLogin, loginInfo, currentUser, setLoggedIn, setCurrentUser}) =>
 {
+    let navigate = useNavigate()
+
     const defaultValues = {
         email: '',
         password: ''
@@ -16,12 +19,17 @@ const LoginModal = ({showLogin, handleCloseLogin}) =>
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(values)
-        fetch('http://localhost:3000/users', {
-            mode: no-cors
-        })
-        .then((res)=> res.json())
-        .then((data)=> console.log(data))
-        setValues(defaultValues)
+        for(const user of loginInfo) {
+            if(user.email === values.email && user.password === values.password) {
+                setLoggedIn(true)  
+                setCurrentUser(user)
+                handleCloseLogin();
+                navigate('/lessons')
+                setValues(defaultValues)
+                return 0;
+            }
+        }
+        alert('No user found')
       }
 
     return(
@@ -52,7 +60,7 @@ const LoginModal = ({showLogin, handleCloseLogin}) =>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={(e) => { handleCloseLogin(); handleSubmit(e) }}>
+          <Button variant="primary" onClick={(e) => {handleSubmit(e) }}>
             Login
           </Button>
         </Modal.Footer>

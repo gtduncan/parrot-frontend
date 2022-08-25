@@ -20,6 +20,13 @@
   z-index:0;
 }
 
+#lesson-page-div
+{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 #earth-icon {
   position: relative;
   height: 300px;
@@ -35,6 +42,76 @@
   font-family: "Comic Gecko";
   right: 40px;
   font-size: 32px;
+}
+
+#user-display
+{
+  position: relative;
+  top: 10px;
+  margin-right: 15px;
+}
+
+.lessons-container
+{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  left: 80px;
+  bottom: 60px;
+}
+
+.card-flag
+{
+  position: relative;
+  height:30px;
+  bottom: 5px;
+}
+
+.lesson-work-page
+{
+  font-family: "Campton Semibold";
+  position: relative;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#lesson-progress
+{
+  width: 75%;
+  position: relative;
+  left: 200px;
+}
+
+#lesson-header
+{
+  margin-top: 20px;
+}
+
+.lesson-card
+{
+  font-family: "Campton Semibold";
+  margin-right: 140px;
+  display: flex;
+  margin-top: 50px;
+}
+
+#language-title
+{
+  font-family: "Campton Semibold";
+  margin-top: 30px;
+}
+
+.card-title
+{
+  justify-content: center;
+}
+
+#logout-display
+{
+  display: flex;
 }
 
 #text-container
@@ -54,6 +131,12 @@
 #nav-login
 {
   font-family: "Campton Semibold";
+}
+
+#user-display
+{
+  font-family: "Campton Semibold";
+  color:white;
 }
 
 #button-div
