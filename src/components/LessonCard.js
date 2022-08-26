@@ -3,7 +3,7 @@ import es_flag from '../images/spain.png';
 import {useNavigate} from "react-router-dom";
 
 
-const LessonCard = ({currentLesson, setCurrentLesson, lesson}) => 
+const LessonCard = ({currentLesson, setCurrentStage, setCurrentLesson, lesson}) => 
 {
     let navigate = useNavigate();
 
@@ -16,6 +16,7 @@ const LessonCard = ({currentLesson, setCurrentLesson, lesson}) =>
 
     const handleClick = () => {
         setCurrentLesson(lesson)
+        setCurrentStage(lesson.current_stage)
         navigate(`/lessons/${lesson.id}`)
     }
 
@@ -32,7 +33,7 @@ const LessonCard = ({currentLesson, setCurrentLesson, lesson}) =>
             </Card.Text>
           </Card.Body>
           <Card.Footer>
-            <ProgressBar now={lesson.current_stage/10*100} label={`${lesson.current_stage} / 10`}/>
+            <ProgressBar now={(lesson.current_stage-1)/10*100} label={`${lesson.current_stage-1} / 10`}/>
           </Card.Footer>
         </Card>
       );

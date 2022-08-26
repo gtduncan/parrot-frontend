@@ -44,11 +44,40 @@
   font-size: 32px;
 }
 
+.question-container
+{
+  display:flex;
+  justify-content: center;
+  text-align: left;
+}
+
+a
+{
+  text-decoration: none !important;
+}
+
 #user-display
 {
   position: relative;
   top: 10px;
   margin-right: 15px;
+}
+
+
+#points-display
+{
+  position: relative;
+  display: flex;
+  top: 12px;
+  margin-right: 15px;
+}
+
+#coin-display
+{
+  position: relative;
+  height:18px;
+  margin-right: 7px;
+  top: 1px;
 }
 
 .lessons-container
@@ -73,6 +102,7 @@
   font-family: "Campton Semibold";
   position: relative;
   top: 20px;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -88,6 +118,7 @@
 #lesson-header
 {
   margin-top: 20px;
+  margin-bottom: 25px;
 }
 
 .lesson-card
@@ -112,6 +143,8 @@
 #logout-display
 {
   display: flex;
+  font-family: "Campton Semibold";
+  color:white;
 }
 
 #text-container

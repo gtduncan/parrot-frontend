@@ -2,7 +2,7 @@ import {Button, Modal, Form} from 'react-bootstrap'
 import {React, useState} from 'react'
 import {useNavigate} from "react-router-dom";
 
-const SignupModal = ({showSignup, handleCloseSignup, loginInfo, setLoggedIn}) => {
+const SignupModal = ({setCurrentUser, showSignup, handleCloseSignup, loginInfo, setLoggedIn}) => {
     const defaultValues = {
         username: '',
         email: '',
@@ -35,11 +35,11 @@ const SignupModal = ({showSignup, handleCloseSignup, loginInfo, setLoggedIn}) =>
                 body: JSON.stringify(values)
             })
             .then((res)=> res.json())
-            .then((data)=> console.log(data));
+            .then((data)=> {console.log(data); setCurrentUser(data)});
             setValues(defaultValues)
             handleCloseSignup()
             navigate('/lessons')
-            setLoggedIn(true) 
+            setLoggedIn(true)
         }
       }
 

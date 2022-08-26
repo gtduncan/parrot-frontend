@@ -30,7 +30,7 @@ const LoginModal = ({showLogin, handleCloseLogin, loginInfo, currentUser, setLog
             }
         }
         alert('No user found')
-      }
+    }
 
     return(
     <Modal show={showLogin} onHide={handleCloseLogin}>
@@ -60,7 +60,7 @@ const LoginModal = ({showLogin, handleCloseLogin, loginInfo, currentUser, setLog
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={(e) => {handleSubmit(e) }}>
+          <Button variant="primary" onClick={(e) => {handleSubmit(e)}} type="submit">
             Login
           </Button>
         </Modal.Footer>

@@ -27,7 +27,7 @@ const LoginPage = ({loginInfo, loggedIn, showLogin, handleShowLogin, handleClose
             <Button variant='light' className="login-buttons" onClick={handleShowLogin}>Log In</Button>
         </div>
     </div>
-      <SignupModal setLoggedIn={setLoggedIn} loginInfo={loginInfo} showSignup={showSignup} handleCloseSignup={handleCloseSignup}/>
+      <SignupModal setLoggedIn={setLoggedIn} loginInfo={loginInfo} showSignup={showSignup} setCurrentUser={setCurrentUser} handleCloseSignup={handleCloseSignup}/>
       <LoginModal showLogin={showLogin} loggedIn={loggedIn} currentUser={currentUser} setCurrentUser={setCurrentUser} setLoggedIn={setLoggedIn} handleCloseLogin={handleCloseLogin} loginInfo={loginInfo}/>
     </div>
     )

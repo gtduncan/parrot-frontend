@@ -15,8 +15,10 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [loginInfo, setLoginInfo] = useState([])
   const [currentUser, setCurrentUser] = useState([])
-  const [lessonData, setLessonData] = useState([])
   const [currentLesson, setCurrentLesson] = useState({})
+  const [lessonData, setLessonData] = useState([])
+  const [stageData, setStageData] = useState([])
+  const [currentStage, setCurrentStage] = useState(1)
 
   const [showLogin, setShowLogin] = useState(false);
   const handleCloseLogin = () => setShowLogin(false);
@@ -30,7 +32,13 @@ function App() {
     fetch('http://localhost:3000/lessons')
     .then((res)=> res.json())
     .then((data)=> {console.log(data); setLessonData(data)})
-  }, [loggedIn]);
+
+    fetch(`http://localhost:3000/stages/${currentStage}`)
+    .then((res)=> res.json())
+    .then((data)=> {console.log(data); setStageData(data)})
+  }, [loggedIn, currentLesson, currentStage]);
+
+  
 
   const logout = () => 
   {
@@ -45,9 +53,9 @@ function App() {
         <Routes>
           <Route exact path="/" element={<LoginPage currentUser={currentUser} handleCloseLogin={handleCloseLogin} setShowLogin={setShowLogin} handleShowLogin={handleShowLogin} setCurrentUser={setCurrentUser} loggedIn={loggedIn} showLogin={showLogin}loginInfo={loginInfo} setLoggedIn={setLoggedIn}/>}>
           </Route>
-          <Route exact path="/lessons" element={<LessonPage lessonData={lessonData} currentLesson={currentLesson} setCurrentLesson={setCurrentLesson}/>}>
+          <Route exact path="/lessons" element={<LessonPage currentUser={currentUser} lessonData={lessonData} setCurrentStage={setCurrentStage} currentLesson={currentLesson} setCurrentLesson={setCurrentLesson}/>}>
           </Route>
-          <Route exact path={`/lessons/${currentLesson.id}`} element={<LessonWorkPage currentLesson={currentLesson}/>}>
+          <Route exact path={`/lessons/${currentLesson.id}`} element={<LessonWorkPage currentStage={currentStage} setCurrentLesson={setCurrentLesson} setCurrentStage={setCurrentStage} stageData={stageData} currentLesson={currentLesson} setStageData={setStageData}/>}>
           </Route>
         </Routes>
     </div>

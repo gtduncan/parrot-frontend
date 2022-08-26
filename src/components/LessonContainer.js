@@ -1,9 +1,11 @@
 import {Container} from 'react-bootstrap'
 import LessonCard from './LessonCard.js'
 
-const LessonContainer = ({currentLesson, lessonData, setCurrentLesson}) => {
-    const mappedLessons = lessonData?.map((lesson) => {
-            return ( <LessonCard currentLesson={currentLesson} setCurrentLesson={setCurrentLesson} lesson={lesson}/>)
+const LessonContainer = ({currentUser, currentLesson, setCurrentStage, lessonData, setCurrentLesson}) => {
+    const mappedLessons = lessonData?.map((lesson) =>  { 
+        if(lesson.user_id === currentUser.id) {
+            return ( <LessonCard currentLesson={currentLesson} setCurrentStage={setCurrentStage} setCurrentLesson={setCurrentLesson} lesson={lesson}/>)
+        }
 })
     return(
         <div>

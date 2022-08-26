@@ -1,5 +1,6 @@
 import {Nav, Button, Navbar, Container} from 'react-bootstrap'
 import logo from "../images/parrotlogo.png"
+import coin from "../images/dollar.png"
 import LoginModal from "./LoginModal"
 import {BrowserRouter as Router, Link, Routes, Route} from "react-router-dom";
 
@@ -12,6 +13,10 @@ const NavBar = ({showLogin, currentUser, setCurrentUser, handleCloseLogin, setLo
         if(loggedIn)
         {
             return <div id='logout-display'>
+                <div id='points-display'>
+                <img id='coin-display' src={coin}></img>
+                <p >{currentUser.points}</p>
+                </div>
                 <p id='user-display'>{currentUser.username}</p>
                 <Button id="nav-login" onClick={logout} variant='light'>Log Out</Button>
                 </div>
